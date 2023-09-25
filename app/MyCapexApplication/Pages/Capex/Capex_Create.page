@@ -1,0 +1,82 @@
+{
+	"ActionBar": {
+		"Items": [
+			{
+				"OnPress": "/MyCapexApplication/Actions/CloseModalPage_Cancel.action",
+				"Position": "Left",
+				"SystemItem": "Cancel"
+			},
+			{
+				"OnPress": "/MyCapexApplication/Rules/Capex/Capex_CreateEntity.js",
+				"Position": "Right",
+				"SystemItem": "Save"
+			}
+		]
+	},
+	"Caption": "Create Capex Detail",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0",
+					"Visible": true,
+					"Controls": [
+						{
+							"Caption": "description",
+							"_Name": "description",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "totalcost",
+							"KeyboardType": "Number",
+							"_Name": "totalcost",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "category_ID",
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection": true,
+							"IsEditable": true,
+							"IsPickerDismissedOnSelection": true,
+							"IsSelectedSectionEnabled": true,
+							"PickerItems": {
+								"DisplayValue": "{name}",
+								"ReturnValue": "{ID}",
+								"Target": {
+									"EntitySet": "Category",
+									"Service": "/MyCapexApplication/Services/service1.service"
+								}
+							},
+							"_Name": "category_ID",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						},
+						{
+							"Caption": "BusinessPartner_BusinessPartner",
+							"AllowMultipleSelection": false,
+							"AllowEmptySelection": true,
+							"IsEditable": true,
+							"IsPickerDismissedOnSelection": true,
+							"IsSelectedSectionEnabled": true,
+							"PickerItems": {
+								"DisplayValue": "{BusinessPartner}",
+								"ReturnValue": "{BusinessPartner}",
+								"Target": {
+									"EntitySet": "A_BusinessPartner",
+									"Service": "/MyCapexApplication/Services/service1.service"
+								}
+							},
+							"_Name": "BusinessPartner_BusinessPartner",
+							"_Type": "Control.Type.FormCell.ListPicker"
+						}
+					]
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "Capex_Create",
+	"PrefersLargeCaption": true
+}

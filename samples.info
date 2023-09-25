@@ -1,0 +1,8 @@
+[
+	{
+		"entity": "Category",
+		"namespace": "MKCapexDemo1",
+		"file": "/home/user/projects/MKCapexDemo1/db/data/MKCapexDemo1-Category.csv",
+		"isFixed": false
+	}
+]
