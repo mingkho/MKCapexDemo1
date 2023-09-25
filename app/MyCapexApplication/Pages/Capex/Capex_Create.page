@@ -1,45 +1,31 @@
 {
-	"ActionBar": {
-		"Items": [
-			{
-				"OnPress": "/MyCapexApplication/Actions/CloseModalPage_Cancel.action",
-				"Position": "Left",
-				"SystemItem": "Cancel"
-			},
-			{
-				"OnPress": "/MyCapexApplication/Rules/Capex/Capex_CreateEntity.js",
-				"Position": "Right",
-				"SystemItem": "Save"
-			}
-		]
-	},
-	"Caption": "Create Capex Detail",
 	"Controls": [
 		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable0",
 			"Sections": [
 				{
-					"_Type": "Section.Type.FormCell",
-					"_Name": "SectionFormCell0",
-					"Visible": true,
 					"Controls": [
 						{
-							"Caption": "description",
+							"_Type": "Control.Type.FormCell.SimpleProperty",
 							"_Name": "description",
-							"_Type": "Control.Type.FormCell.SimpleProperty"
+							"Caption": "Description"
 						},
 						{
-							"Caption": "totalcost",
-							"KeyboardType": "Number",
+							"_Type": "Control.Type.FormCell.SimpleProperty",
 							"_Name": "totalcost",
-							"_Type": "Control.Type.FormCell.SimpleProperty"
+							"Caption": "Total Cost",
+							"KeyboardType": "Number"
 						},
 						{
-							"Caption": "category_ID",
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"_Name": "category_ID",
+							"IsEditable": true,
 							"AllowMultipleSelection": false,
 							"AllowEmptySelection": true,
-							"IsEditable": true,
-							"IsPickerDismissedOnSelection": true,
+							"Caption": "Category",
 							"IsSelectedSectionEnabled": true,
+							"IsPickerDismissedOnSelection": true,
 							"PickerItems": {
 								"DisplayValue": "{name}",
 								"ReturnValue": "{ID}",
@@ -47,17 +33,17 @@
 									"EntitySet": "Category",
 									"Service": "/MyCapexApplication/Services/service1.service"
 								}
-							},
-							"_Name": "category_ID",
-							"_Type": "Control.Type.FormCell.ListPicker"
+							}
 						},
 						{
-							"Caption": "BusinessPartner_BusinessPartner",
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"_Name": "BusinessPartner_BusinessPartner",
+							"IsEditable": true,
 							"AllowMultipleSelection": false,
 							"AllowEmptySelection": true,
-							"IsEditable": true,
-							"IsPickerDismissedOnSelection": true,
+							"Caption": "BusinessPartner",
 							"IsSelectedSectionEnabled": true,
+							"IsPickerDismissedOnSelection": true,
 							"PickerItems": {
 								"DisplayValue": "{BusinessPartner}",
 								"ReturnValue": "{BusinessPartner}",
@@ -65,18 +51,42 @@
 									"EntitySet": "A_BusinessPartner",
 									"Service": "/MyCapexApplication/Services/service1.service"
 								}
-							},
-							"_Name": "BusinessPartner_BusinessPartner",
-							"_Type": "Control.Type.FormCell.ListPicker"
+							}
 						}
-					]
+					],
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0"
 				}
-			],
-			"_Name": "SectionedTable0",
-			"_Type": "Control.Type.SectionedTable"
+			]
 		}
 	],
 	"_Type": "Page",
 	"_Name": "Capex_Create",
-	"PrefersLargeCaption": true
+	"Caption": "Create Capex",
+	"PrefersLargeCaption": true,
+	"ActionBar": {
+		"Items": [
+			{
+				"_Name": "ActionBarItem0",
+				"Caption": "",
+				"SystemItem": "Cancel",
+				"Position": "Left",
+				"IsIconCircular": false,
+				"OnPress": "/MyCapexApplication/Actions/CloseModalPage_Cancel.action"
+			},
+			{
+				"_Name": "ActionBarItem1",
+				"Caption": "",
+				"SystemItem": "Save",
+				"Position": "Right",
+				"IsIconCircular": false,
+				"OnPress": "/MyCapexApplication/Rules/Capex/Capex_CreateEntity.js"
+			}
+		],
+		"_Name": "ActionBar1"
+	}
 }

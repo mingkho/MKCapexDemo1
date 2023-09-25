@@ -1,51 +1,38 @@
 {
-	"Caption": "Update Capex Detail",
 	"DesignTimeTarget": {
 		"Service": "/MyCapexApplication/Services/service1.service",
 		"EntitySet": "Capex",
 		"QueryOptions": ""
 	},
-	"ActionBar": {
-		"Items": [
-			{
-				"Position": "Left",
-				"Caption": "Cancel",
-				"OnPress": "/MyCapexApplication/Rules/Capex/Capex_Cancel.js"
-			},
-			{
-				"Position": "Right",
-				"SystemItem": "Save",
-				"OnPress": "/MyCapexApplication/Rules/Capex/Capex_UpdateEntity.js"
-			}
-		]
-	},
 	"Controls": [
 		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable0",
 			"Sections": [
 				{
-					"_Type": "Section.Type.FormCell",
-					"_Name": "SectionFormCell0",
-					"Visible": true,
 					"Controls": [
 						{
-							"Caption": "description",
-							"_Name": "description",
 							"Value": "{description}",
-							"_Type": "Control.Type.FormCell.SimpleProperty"
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"_Name": "description",
+							"Caption": "description"
 						},
 						{
-							"Caption": "totalcost",
-							"_Name": "totalcost",
 							"Value": "{totalcost}",
-							"KeyboardType": "Number",
-							"_Type": "Control.Type.FormCell.SimpleProperty"
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"_Name": "totalcost",
+							"Caption": "Total Cost",
+							"KeyboardType": "Number"
 						},
 						{
-							"Caption": "category_ID",
+							"Value": "{category_ID}",
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"_Name": "category_ID",
 							"AllowMultipleSelection": false,
 							"AllowEmptySelection": true,
-							"IsPickerDismissedOnSelection": true,
+							"Caption": "Category",
 							"IsSelectedSectionEnabled": true,
+							"IsPickerDismissedOnSelection": true,
 							"PickerItems": {
 								"DisplayValue": "{name}",
 								"ReturnValue": "{ID}",
@@ -53,17 +40,17 @@
 									"EntitySet": "Category",
 									"Service": "/MyCapexApplication/Services/service1.service"
 								}
-							},
-							"Value": "{category_ID}",
-							"_Name": "category_ID",
-							"_Type": "Control.Type.FormCell.ListPicker"
+							}
 						},
 						{
-							"Caption": "BusinessPartner_BusinessPartner",
+							"Value": "{BusinessPartner_BusinessPartner}",
+							"_Type": "Control.Type.FormCell.ListPicker",
+							"_Name": "BusinessPartner_BusinessPartner",
 							"AllowMultipleSelection": false,
 							"AllowEmptySelection": true,
-							"IsPickerDismissedOnSelection": true,
+							"Caption": "BusinessPartner",
 							"IsSelectedSectionEnabled": true,
+							"IsPickerDismissedOnSelection": true,
 							"PickerItems": {
 								"DisplayValue": "{BusinessPartner}",
 								"ReturnValue": "{BusinessPartner}",
@@ -71,19 +58,41 @@
 									"EntitySet": "A_BusinessPartner",
 									"Service": "/MyCapexApplication/Services/service1.service"
 								}
-							},
-							"Value": "{BusinessPartner_BusinessPartner}",
-							"_Name": "BusinessPartner_BusinessPartner",
-							"_Type": "Control.Type.FormCell.ListPicker"
+							}
 						}
-					]
+					],
+					"Visible": true,
+					"EmptySection": {
+						"FooterVisible": false
+					},
+					"_Type": "Section.Type.FormCell",
+					"_Name": "SectionFormCell0"
 				}
-			],
-			"_Name": "SectionedTable0",
-			"_Type": "Control.Type.SectionedTable"
+			]
 		}
 	],
 	"_Type": "Page",
 	"_Name": "Capex_Edit",
-	"PrefersLargeCaption": true
+	"Caption": "Update Capex Detail",
+	"PrefersLargeCaption": true,
+	"ActionBar": {
+		"Items": [
+			{
+				"_Name": "ActionBarItem0",
+				"Caption": "Cancel",
+				"Position": "Left",
+				"IsIconCircular": false,
+				"OnPress": "/MyCapexApplication/Rules/Capex/Capex_Cancel.js"
+			},
+			{
+				"_Name": "ActionBarItem1",
+				"Caption": "",
+				"SystemItem": "Save",
+				"Position": "Right",
+				"IsIconCircular": false,
+				"OnPress": "/MyCapexApplication/Rules/Capex/Capex_UpdateEntity.js"
+			}
+		],
+		"_Name": "ActionBar1"
+	}
 }

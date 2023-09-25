@@ -1,24 +1,35 @@
 {
-	"Caption": "Capex",
-	"ActionBar": {
-		"Items": [
-			{
-				"OnPress": "/MyCapexApplication/Actions/Capex/NavToCapex_Create.action",
-				"Position": "Right",
-				"SystemItem": "Add"
-			}
-		]
-	},
 	"Controls": [
 		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable",
 			"Sections": [
 				{
 					"Header": {
+						"_Name": "SectionHeader0",
+						"AccessoryType": "none",
 						"UseTopPadding": false
 					},
+					"_Type": "Section.Type.ObjectTable",
+					"Target": {
+						"Service": "/MyCapexApplication/Services/service1.service",
+						"EntitySet": "Capex",
+						"QueryOptions": "$expand=category"
+					},
+					"_Name": "SectionObjectTable0",
+					"EmptySection": {
+						"Caption": "No record found!",
+						"FooterVisible": false
+					},
 					"ObjectCell": {
-						"AccessoryType": "disclosureIndicator",
+						"Title": "{ID}",
+						"Subhead": "{description}",
+						"Footnote": "Category: {category/name}",
 						"Description": "{totalcost}",
+						"StatusText": "{BusinessPartner_BusinessPartner}",
+						"PreserveIconStackSpacing": false,
+						"AccessoryType": "disclosureIndicator",
+						"Tags": [],
 						"AvatarStack": {
 							"Avatars": [
 								{
@@ -27,18 +38,11 @@
 							],
 							"ImageIsCircular": false
 						},
-						"Icons": [],
 						"OnPress": "/MyCapexApplication/Actions/Capex/NavToCapex_Detail.action",
-						"StatusImage": "",
-						"Title": "{ID}",
-						"Footnote": "{category_ID}",
-						"PreserveIconStackSpacing": false,
-						"StatusText": "{BusinessPartner_BusinessPartner}",
-						"Subhead": "{description}",
-						"SubstatusText": ""
-					},
-					"EmptySection": {
-						"Caption": "No record found!"
+						"ContextMenu": {
+							"Items": [],
+							"PerformFirstActionWithFullSwipe": true
+						}
 					},
 					"Search": {
 						"Enabled": true,
@@ -50,34 +54,43 @@
 					"DataPaging": {
 						"ShowLoadingIndicator": true,
 						"LoadingIndicatorText": "Loading more items, please wait..."
-					},
-					"Target": {
-						"EntitySet": "Capex",
-						"Service": "/MyCapexApplication/Services/service1.service",
-						"QueryOptions": ""
-					},
-					"_Type": "Section.Type.ObjectTable"
+					}
 				}
 			],
 			"LoadingIndicator": {
 				"Enabled": true,
 				"Text": "Loading, please wait..."
-			},
-			"_Type": "Control.Type.SectionedTable",
-			"_Name": "SectionedTable"
+			}
 		}
 	],
 	"_Type": "Page",
+	"_Name": "Capex_List",
+	"Caption": "Capex",
+	"PrefersLargeCaption": true,
+	"ActionBar": {
+		"Items": [
+			{
+				"_Name": "ActionBarItem0",
+				"Caption": "",
+				"SystemItem": "Add",
+				"Position": "Right",
+				"IsIconCircular": false,
+				"OnPress": "/MyCapexApplication/Actions/Capex/NavToCapex_Create.action"
+			}
+		],
+		"_Name": "ActionBar1"
+	},
 	"ToolBar": {
 		"Items": [
 			{
-				"_Name": "LogoutToolbarItem",
 				"_Type": "Control.Type.ToolbarItem",
+				"_Name": "LogoutToolbarItem",
 				"Caption": "Logout",
+				"Enabled": true,
+				"Visible": true,
+				"Clickable": true,
 				"OnPress": "/MyCapexApplication/Actions/Logout.action"
 			}
 		]
-	},
-	"_Name": "Capex_List",
-	"PrefersLargeCaption": true
+	}
 }
